@@ -1,4 +1,5 @@
 project: 'magento2'
+type: 'magento2'
 ip: '192.168.254.90'
 #pubip: '192.168.2.254'
 path: '../magento2'

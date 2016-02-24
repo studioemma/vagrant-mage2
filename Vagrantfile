@@ -4,9 +4,15 @@
 require 'yaml'
 
 begin
-      boxconfig = YAML.load_file('config.yml')
+  boxconfig = YAML.load_file('config.yml')
 rescue Errno::ENOENT
-      abort "No config.yml found. Copy config.yml.example to get started."
+  abort "No config.yml found. Copy config.yml.example to get started."
+end
+
+if boxconfig['type']
+  unless File.file?(boxconfig['type'] + '.sh')
+    abort "the type " + boxconfig['type'] + " does not exist."
+  end
 end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -67,5 +73,5 @@ Vagrant.configure(2) do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.ssh.forward_agent = true
 
-  config.vm.provision :shell, :path => 'magento2.sh'
+  config.vm.provision :shell, :path => boxconfig['type'] + '.sh'
 end
