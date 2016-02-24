@@ -1,0 +1,6 @@
+project: 'magento2'
+ip: '192.168.254.90'
+#pubip: '192.168.2.254'
+path: '../magento2'
+memory: 1024
+cpus: 1
