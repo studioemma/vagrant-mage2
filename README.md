@@ -1,6 +1,19 @@
 Magento 2 SE box
 ================
 
+Get this repo
+-------------
+
+~~~
+$ git clone --recursive https://github.com/studioemma/vagrant-mage2.git
+~~~
+
+When you forgot the --recursive part you can update the submodules recursive.
+
+~~~
+$ git submodule update --init --recursive
+~~~
+
 Config
 ------
 
