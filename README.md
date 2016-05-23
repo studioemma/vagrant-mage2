@@ -44,8 +44,29 @@ Grunt
 
 For frontend development there is a grunt config file available in magento so
 grunt is globally installed in this box. For use with magento you also need a
-project local part installed. This will be provided to you via the ant target
-`local-install-grunt`.
+project local part installed. You can find how to install grunt in the
+(magento2 devdocs)[http://devdocs.magento.com/guides/v2.0/frontend-dev-guide/css-topics/css_debug.html#grunt_prereq].
+
+What we need to do locally to get started with grunt is:
+
+~~~ sh
+$ cd /var/www/website
+$ npm install
+~~~
+
+And we need to prepare the 'frontend' files. Here we must make sure there is
+nothing left in the static folder, if there is something left there, there is a
+big chance your grunt flow will not work properly. For custom theming do not
+forget to update `dev/tools/grunt/configs/themes.js`.
+
+~~~ sh
+$ rm -rf pub/static/*
+$ bin/magento dev:source-theme:deploy
+$ grunt watch
+~~~
+
+Use the appropriate options for `dev:source-theme:deploy`!
+
 
 Webserver
 ---------
@@ -147,5 +168,21 @@ Defaults
 
 - the website is always mapped to /var/www/website
 - `w` will cd you to the website path
-- `ra` will restart apache for you
+- `rn` will restart nginx
 - `rp` will restart php-fpm
+
+Flavours
+--------
+
+Currently we have 3 available flavours:
+
+- trusty-5.5 : ubuntu 14.04 with the latest php 5.5 available
+- trusty-5.6 : ubuntu 14.04 with the latest php 5.6 available
+- trusty-7.0 : ubuntu 14.04 with the latest php 7.0 available
+
+To get the flavour you want checkout the corresponding branch in this repo.
+
+TODO
+----
+
+Ubuntu 16.04
