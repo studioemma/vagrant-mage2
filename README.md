@@ -86,6 +86,18 @@ scripts you must add the XDEBUG_CONFIG env var before running the php script.
 $ XDEBUG_CONFIG="remote_host=192.168.254.1" php myscript.php
 ~~~
 
+Mysql
+-----
+
+By default mysql is installed and creates a database.
+You can connect to the database with the following credentials:
+
+~~~
+user: root
+password: toor
+database: magento2
+~~~
+
 Memcached
 ---------
 
