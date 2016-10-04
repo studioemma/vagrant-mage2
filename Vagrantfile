@@ -39,7 +39,9 @@ Vagrant.configure(2) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: boxconfig['ip']
-  if boxconfig['pubip']
+  if (boxconfig['pubip'] && boxconfig['mac'])
+    config.vm.network "public_network", ip: boxconfig['pubip'], mac: boxconfig['mac']
+  elsif boxconfig['pubip']
     config.vm.network "public_network", ip: boxconfig['pubip']
   end
 
