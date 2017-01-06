@@ -210,6 +210,12 @@ Currently we have 2 available flavours:
 
 To get the flavour you want checkout the corresponding branch in this repo.
 
+WARNING
+-------
+
+The 7.1 version works but since mcrypt is deprecated you might need to do some
+manual changes to get it all working fine.
+
 Deprecated
 ----------
 
