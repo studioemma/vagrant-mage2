@@ -189,6 +189,17 @@ Defaults
 - `rn` will restart nginx
 - `rp` will restart php-fpm
 
+Example Hosts File
+------------------
+
+~~~
+192.168.254.253 magento2.dev
+192.168.254.253 www.magento2.dev
+192.168.254.253 phpmemcacheadmin.magento2.dev
+192.168.254.253 phpredmin.magento2.dev
+192.168.254.253 mailcatcher.magento2.dev
+~~~
+
 Flavours
 --------
 
