@@ -23,7 +23,7 @@ The box *needs* a config.yml file. For everyones convenience there is a
 ~~~ yaml
 project: 'magento2'
 type: 'magento2'
-ip: '192.168.254.90'
+ip: '192.168.254.253'
 path: '../magento2'
 memory: 1024
 cpus: 1
@@ -126,7 +126,7 @@ phpmemacheadmin. The phpmemcachedadmin listens for a wildcard domain
 `phpmemcacheadmin.magento2.dev` to our hosts file.
 
 ~~~
-192.168.254.90 phpmemcacheadmin.magento2.dev
+192.168.254.253 phpmemcacheadmin.magento2.dev
 ~~~
 
 Redis
@@ -161,7 +161,7 @@ phpredmin is also available on a wildcard domain `phpredmin.*.dev`. So we can
 for example add the following to our hosts file:
 
 ~~~
-192.168.254.90 phpredmin.magento2.dev
+192.168.254.253 phpredmin.magento2.dev
 ~~~
 
 Mailcatcher
@@ -171,14 +171,14 @@ By default mailcatcher is running and listening on port 25. It is also added as
 sendmail binary to your php setup.
 
 To check the mails just browse to your defined ip port 8025. For example
-http://192.168.254.90:8025, or if you have `192.168.254.90 magento2.dev` in
+http://192.168.254.253:8025, or if you have `192.168.254.253 magento2.dev` in
 your hosts file http://magento2.dev:8025.
 
 For convenience there is a wildcard domain `mailcatcher.*.dev`. So we can also
 add thisone to our hosts file:
 
 ~~~
-192.168.254.90 mailcatcher.magento2.dev
+192.168.254.253 mailcatcher.magento2.dev
 ~~~
 
 Defaults
