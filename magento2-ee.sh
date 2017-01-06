@@ -16,16 +16,17 @@ export DEBIAN_FRONTEND=noninteractive
 init/install.sh
 bash/install.sh
 nginx/install.sh
-php/install-5.5.sh
-mysql/install-5.6.sh
+php/install-7.0.sh
+mysql/install.sh
 redis/install.sh
 memcached/install.sh
+nodejs/install.sh
 grunt/install.sh
 mailcatcher/install.sh
-solr/install.sh
+# @TODO elastcsearch/install.sh
 rabbitmq/install.sh
 magento/install.sh
-mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php5.5-fpm'
+mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.0-fpm'
 
 if [ "/tmp" != "$basedir" ]; then
     cd "$calldir"
