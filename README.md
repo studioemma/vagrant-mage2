@@ -195,7 +195,7 @@ Flavours
 Currently we have 2 available flavours:
 
 - xenial-7.0 : ubuntu 16.04 with the latest php 7.0 available
-- xenial-7.1 : ubuntu 14.04 with the latest php 7.1 available
+- xenial-7.1 : ubuntu 16.04 with the latest php 7.1 available
 
 To get the flavour you want checkout the corresponding branch in this repo.
 
