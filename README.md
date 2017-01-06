@@ -86,6 +86,12 @@ scripts you must add the XDEBUG_CONFIG env var before running the php script.
 $ XDEBUG_CONFIG="remote_host=192.168.254.1" php myscript.php
 ~~~
 
+PHPSTORM users might need to add more to have a smooth debugging experience.
+
+~~~ sh
+$ XDEBUG_CONFIG="remote_host=192.168.254.1" PHP_IDE_CONFIG="serverName=default" php myscript.php
+~~~
+
 Mysql
 -----
 
@@ -179,22 +185,24 @@ Defaults
 --------
 
 - the website is always mapped to /var/www/website
-- `w` will cd you to the website path
+- `www` will cd you to the website path
 - `rn` will restart nginx
 - `rp` will restart php-fpm
 
 Flavours
 --------
 
-Currently we have 3 available flavours:
+Currently we have 2 available flavours:
+
+- xenial-7.0 : ubuntu 16.04 with the latest php 7.0 available
+- xenial-7.1 : ubuntu 14.04 with the latest php 7.1 available
+
+To get the flavour you want checkout the corresponding branch in this repo.
+
+Deprecated
+----------
 
 - trusty-5.5 : ubuntu 14.04 with the latest php 5.5 available
 - trusty-5.6 : ubuntu 14.04 with the latest php 5.6 available
 - trusty-7.0 : ubuntu 14.04 with the latest php 7.0 available
 
-To get the flavour you want checkout the corresponding branch in this repo.
-
-TODO
-----
-
-Ubuntu 16.04
