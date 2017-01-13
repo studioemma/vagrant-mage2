@@ -14,6 +14,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # install 'modules'
 init/install.sh
+sshd/install.sh
 bash/install.sh
 nginx/install.sh
 php/install-7.0.sh
