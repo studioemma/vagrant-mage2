@@ -74,6 +74,7 @@ Vagrant.configure(2) do |config|
   # stdin: is not a tty
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.ssh.forward_agent = true
+  config.ssh.insert_key = false
 
   config.vm.provision :shell, :path => boxconfig['type'] + '.sh'
 end
