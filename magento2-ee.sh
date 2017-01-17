@@ -24,6 +24,7 @@ memcached/install.sh
 nodejs/install.sh
 grunt/install.sh
 mailcatcher/install.sh
+varnish/install.sh
 # @TODO elastcsearch/install.sh
 rabbitmq/install.sh
 magento/install.sh

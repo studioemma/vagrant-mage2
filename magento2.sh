@@ -24,6 +24,7 @@ memcached/install.sh
 nodejs/install.sh
 grunt/install.sh
 mailcatcher/install.sh
+varnish/install.sh
 magento/install.sh
 mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.0-fpm'
 

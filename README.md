@@ -171,8 +171,8 @@ By default mailcatcher is running and listening on port 25. It is also added as
 sendmail binary to your php setup.
 
 To check the mails just browse to your defined ip port 8025. For example
-http://192.168.254.253:8025, or if you have `192.168.254.253 magento2.dev` in
-your hosts file http://magento2.dev:8025.
+http://192.168.254.253:1080, or if you have `192.168.254.253 magento2.dev` in
+your hosts file http://magento2.dev:1080.
 
 For convenience there is a wildcard domain `mailcatcher.*.dev`. So we can also
 add thisone to our hosts file:
@@ -180,6 +180,13 @@ add thisone to our hosts file:
 ~~~
 192.168.254.253 mailcatcher.magento2.dev
 ~~~
+
+Varnish
+-------
+
+Varnish is setup with the default vcl for magento2. If you want to test how your magento2 site behaves with varnish you can browse to http://magento2.dev:6081.
+
+TODO: add an admin dashboard for varnish
 
 Defaults
 --------
@@ -194,10 +201,11 @@ Example Hosts File
 
 ~~~
 192.168.254.253 magento2.dev
-192.168.254.253 www.magento2.dev
-192.168.254.253 phpmemcacheadmin.magento2.dev
-192.168.254.253 phpredmin.magento2.dev
+192.168.254.253 phpbeanstalkadmin.magento2.dev
 192.168.254.253 mailcatcher.magento2.dev
+192.168.254.253 phpmemcacheadmin.magento2.dev
+192.168.254.253 rabbitmq.magento2.dev
+192.168.254.253 phpredmin.magento2.dev
 ~~~
 
 Flavours
