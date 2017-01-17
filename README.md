@@ -184,9 +184,46 @@ add thisone to our hosts file:
 Varnish
 -------
 
-Varnish is setup with the default vcl for magento2. If you want to test how your magento2 site behaves with varnish you can browse to http://magento2.dev:6081.
+Varnish is setup with the default vcl for magento2. If you want to test how
+your magento2 site behaves with varnish you can browse to
+http://magento2.dev:6081.
 
 TODO: add an admin dashboard for varnish
+
+Beanstalkd
+----------
+
+There is Beanstalkd available when you want to do some simple queuing. This is
+rather for internal projects only since for Magento we probably will use
+rabbitmq by default.
+
+For convenience there is a beanstalk admin installed which is reacheable on
+http://phpbeanstalkadmin.magento2.dev
+
+You could add an entry for that in your hosts file:
+
+~~~
+192.168.254.253 phpbeanstalkadmin.magento2.dev
+~~~
+
+Rabbitmq
+--------
+
+Available for Enterprise Magento2 installations.
+
+The management interface of rabbitmq is installed and reachable on
+http://rabbitmq.magento2.dev
+
+~~~
+192.168.254.253 rabbitmq.magento2.dev
+~~~
+
+Elasticsearch
+-------------
+
+Available for Enterprise Magneto2 installations.
+
+Not yet available
 
 Defaults
 --------
