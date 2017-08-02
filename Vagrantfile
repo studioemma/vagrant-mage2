@@ -1,16 +1,19 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+# vi: set ft=ruby ts=2 sw=2 et :
 
 require 'yaml'
 
+vagrantpath = File.expand_path(File.dirname(__FILE__))
+
 begin
-  boxconfig = YAML.load_file('config.yml')
+  boxconfig = YAML.load_file(vagrantpath + '/config.yml')
 rescue Errno::ENOENT
   abort "No config.yml found. Copy config.yml.example to get started."
 end
 
 if boxconfig['type']
-  unless File.file?(boxconfig['type'] + '.sh')
+  boxconfigtypefile = vagrantpath + '/' + boxconfig['type'] + '.sh'
+  unless File.file?(boxconfigtypefile)
     abort "the type " + boxconfig['type'] + " does not exist."
   end
 end
@@ -40,7 +43,8 @@ Vagrant.configure(2) do |config|
   # using a specific IP.
   config.vm.network "private_network", ip: boxconfig['ip']
   if (boxconfig['pubip'] && boxconfig['mac'])
-    config.vm.network "public_network", ip: boxconfig['pubip'], mac: boxconfig['mac']
+    config.vm.network "public_network", ip: boxconfig['pubip'],
+      mac: boxconfig['mac']
   elsif boxconfig['pubip']
     config.vm.network "public_network", ip: boxconfig['pubip']
   end
@@ -55,9 +59,12 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
-    config.vm.synced_folder boxconfig['path'], "/var/www/website", id: "website", type: "nfs", mount_options: ["rw","vers=3","udp","actimeo=2"]
+    config.vm.synced_folder boxconfig['path'], "/var/www/website",
+      id: "website", type: "nfs",
+      mount_options: ["rw","vers=3","udp","actimeo=2"]
   else
-    config.vm.synced_folder boxconfig['path'], "/var/www/website", id: "website"
+    config.vm.synced_folder boxconfig['path'], "/var/www/website",
+      id: "website"
   end
 
   # Provider-specific configuration so you can fine-tune various
@@ -69,7 +76,13 @@ Vagrant.configure(2) do |config|
     if RUBY_PLATFORM =~ /linux/
       vb.customize ["modifyvm", :id, "--paravirtprovider", "kvm"]
     end
-    vb.customize [ "modifyvm", :id, "--uartmode1", "file", File.join(Dir.pwd, "cloudimg-console.log") ]
+    vb.customize [
+      "modifyvm",
+      :id,
+      "--uartmode1",
+      "file",
+      vagrantpath + "cloudimg-console.log"
+    ]
   end
 
   # stdin: is not a tty
@@ -78,5 +91,5 @@ Vagrant.configure(2) do |config|
   config.ssh.username = "ubuntu"
   #config.ssh.insert_key = false
 
-  config.vm.provision :shell, :path => boxconfig['type'] + '.sh'
+  config.vm.provision :shell, :path => boxconfigtypefile
 end
