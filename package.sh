@@ -3,7 +3,7 @@
 
 name="$1"
 
-vagrant destroy
+vagrant destroy -f
 sed -e 's/#config.ssh.insert_key/config.ssh.insert_key/' \
     -i Vagrantfile
 vagrant up
