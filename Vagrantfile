@@ -58,13 +58,15 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
-    config.vm.synced_folder boxconfig['path'], "/var/www/website",
-      id: "website", type: "nfs",
-      mount_options: ["rw","vers=3","udp","actimeo=2"]
-  else
-    config.vm.synced_folder boxconfig['path'], "/var/www/website",
-      id: "website"
+  if (boxconfig['path'])
+    if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
+      config.vm.synced_folder boxconfig['path'], "/var/www/website",
+        id: "website", type: "nfs",
+        mount_options: ["rw","vers=3","udp","actimeo=2"]
+    else
+      config.vm.synced_folder boxconfig['path'], "/var/www/website",
+        id: "website"
+    end
   end
 
   # Provider-specific configuration so you can fine-tune various
