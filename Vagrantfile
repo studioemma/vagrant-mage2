@@ -78,13 +78,7 @@ Vagrant.configure(2) do |config|
     if RUBY_PLATFORM =~ /linux/
       vb.customize ["modifyvm", :id, "--paravirtprovider", "kvm"]
     end
-    vb.customize [
-      "modifyvm",
-      :id,
-      "--uartmode1",
-      "file",
-      vagrantpath + "cloudimg-console.log"
-    ]
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   # stdin: is not a tty
