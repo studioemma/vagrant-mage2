@@ -7,6 +7,7 @@ vagrant destroy -f
 sed -e 's/#config.ssh.insert_key/config.ssh.insert_key/' \
     -i Vagrantfile
 vagrant up
+vagrant ssh
 vagrant package --output "se-$name-$(date +%Y%m%d).box"
 sed -e 's/config.ssh.insert_key/#config.ssh.insert_key/' \
     -i Vagrantfile
