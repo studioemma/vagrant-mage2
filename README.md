@@ -34,7 +34,7 @@ have impact on the hostname shown to you when you ssh into the box). The
 `host-only` ip address can be configured, so when you have more than one of
 these boxes running you can do so without conflicting. The path to the root of
 your project must be defined. And in case you must you can add more memory and
-more cpus to the cofiguration to avoid sluggish responses when developing.
+more cpus to the configuration to avoid sluggish responses when developing.
 
 The type given in the configuration will cause a specific provisioning script
 to be used.  Now we provide `magento2` and `magento2-ee` installations.
