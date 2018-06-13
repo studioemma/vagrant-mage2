@@ -11,11 +11,29 @@ rescue Errno::ENOENT
   abort "No config.yml found. Copy config.yml.example to get started."
 end
 
+if ! boxconfig['project']
+  abort "please specify the project name in config.yml"
+end
+
 if boxconfig['type']
   boxconfigtypefile = vagrantpath + '/' + boxconfig['type'] + '.sh'
   unless File.file?(boxconfigtypefile)
     abort "the type " + boxconfig['type'] + " does not exist."
   end
+else
+  abort "please specify the box type in config.yml"
+end
+
+if ! boxconfig['ip']
+  abort "please specify the ip in config.yml"
+end
+
+if ! boxconfig['memory']
+  abort "please specify memory in config.yml"
+end
+
+if ! boxconfig['cpus']
+  abort "please specify the nr of cpus in config.yml"
 end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
