@@ -1,5 +1,5 @@
 project: 'magento2'
-type: 'magento2'
+type: 'magento2-ce'
 ip: '192.168.254.253'
 #pubip: '192.168.2.254'
 #mac: '08de08de08de'
