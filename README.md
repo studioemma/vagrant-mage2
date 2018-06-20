@@ -34,7 +34,7 @@ have impact on the hostname shown to you when you ssh into the box). The
 `host-only` ip address can be configured, so when you have more than one of
 these boxes running you can do so without conflicting. The path to the root of
 your project must be defined. And in case you must you can add more memory and
-more cpus to the configuration to avoid sluggish responses when testeloping.
+more cpus to the configuration to avoid sluggish responses when developing.
 
 The type given in the configuration will cause a specific provisioning script
 to be used.  Now we provide `magento2-ce` and `magento2-ee` installations.
@@ -44,10 +44,10 @@ everything for community edition + elasticsearch.
 Grunt
 -----
 
-For frontend testelopment there is a grunt config file available in magento so
+For frontend development there is a grunt config file available in magento so
 grunt is globally installed in this box. For use with magento you also need a
 project local part installed. You can find how to install grunt in the
-(magento2 testdocs)[http://testdocs.magento.com/guides/v2.0/frontend-test-guide/css-topics/css_debug.html#grunt_prereq].
+(magento2 devdocs)[http://devdocs.magento.com/guides/v2.0/frontend-dev-guide/css-topics/css_debug.html#grunt_prereq].
 
 What we need to do locally to get started with grunt is:
 
@@ -59,15 +59,15 @@ $ npm install
 And we need to prepare the 'frontend' files. Here we must make sure there is
 nothing left in the static folder, if there is something left there, there is a
 big chance your grunt flow will not work properly. For custom theming do not
-forget to update `test/tools/grunt/configs/themes.js`.
+forget to update `dev/tools/grunt/configs/themes.js`.
 
 ~~~ sh
 $ rm -rf pub/static/*
-$ bin/magento test:source-theme:deploy
+$ bin/magento dev:source-theme:deploy
 $ grunt watch
 ~~~
 
-Use the appropriate options for `test:source-theme:deploy`!
+Use the appropriate options for `dev:source-theme:deploy`!
 
 
 Webserver
