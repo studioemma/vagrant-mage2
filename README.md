@@ -22,7 +22,7 @@ The box *needs* a config.yml file. For everyones convenience there is a
 
 ~~~ yaml
 project: 'magento2'
-type: 'magento2'
+type: 'magento2-ce'
 ip: '192.168.254.253'
 path: '../magento2'
 memory: 1024
@@ -34,18 +34,20 @@ have impact on the hostname shown to you when you ssh into the box). The
 `host-only` ip address can be configured, so when you have more than one of
 these boxes running you can do so without conflicting. The path to the root of
 your project must be defined. And in case you must you can add more memory and
-more cpus to the configuration to avoid sluggish responses when developing.
+more cpus to the configuration to avoid sluggish responses when testeloping.
 
 The type given in the configuration will cause a specific provisioning script
-to be used.  Now we provide `magento2` and `magento2-ee` installations.
+to be used.  Now we provide `magento2-ce` and `magento2-ee` installations.
+As an extra there is now a `magento2-ce-elastic`. Thatone will give you
+everything for community edition + elasticsearch.
 
 Grunt
 -----
 
-For frontend development there is a grunt config file available in magento so
+For frontend testelopment there is a grunt config file available in magento so
 grunt is globally installed in this box. For use with magento you also need a
 project local part installed. You can find how to install grunt in the
-(magento2 devdocs)[http://devdocs.magento.com/guides/v2.0/frontend-dev-guide/css-topics/css_debug.html#grunt_prereq].
+(magento2 testdocs)[http://testdocs.magento.com/guides/v2.0/frontend-test-guide/css-topics/css_debug.html#grunt_prereq].
 
 What we need to do locally to get started with grunt is:
 
@@ -57,15 +59,15 @@ $ npm install
 And we need to prepare the 'frontend' files. Here we must make sure there is
 nothing left in the static folder, if there is something left there, there is a
 big chance your grunt flow will not work properly. For custom theming do not
-forget to update `dev/tools/grunt/configs/themes.js`.
+forget to update `test/tools/grunt/configs/themes.js`.
 
 ~~~ sh
 $ rm -rf pub/static/*
-$ bin/magento dev:source-theme:deploy
+$ bin/magento test:source-theme:deploy
 $ grunt watch
 ~~~
 
-Use the appropriate options for `dev:source-theme:deploy`!
+Use the appropriate options for `test:source-theme:deploy`!
 
 
 Webserver
@@ -122,11 +124,11 @@ sessions.  When you want to use memcached add the following to
 
 You can view the memcached stats and issue some commands to it via
 phpmemacheadmin. The phpmemcachedadmin listens for a wildcard domain
-`phpmemcacheadmin.*.dev`. When we are using `magento2` we can for example add
-`phpmemcacheadmin.magento2.dev` to our hosts file.
+`phpmemcacheadmin.*.test`. When we are using `magento2` we can for example add
+`phpmemcacheadmin.magento2.test` to our hosts file.
 
 ~~~
-192.168.254.253 phpmemcacheadmin.magento2.dev
+192.168.254.253 phpmemcacheadmin.magento2.test
 ~~~
 
 Redis
@@ -157,11 +159,11 @@ caching.  To use redis as page caching mechanism add the following to
 ...
 ~~~
 
-phpredmin is also available on a wildcard domain `phpredmin.*.dev`. So we can
+phpredmin is also available on a wildcard domain `phpredmin.*.test`. So we can
 for example add the following to our hosts file:
 
 ~~~
-192.168.254.253 phpredmin.magento2.dev
+192.168.254.253 phpredmin.magento2.test
 ~~~
 
 Mailcatcher
@@ -171,14 +173,14 @@ By default mailcatcher is running and listening on port 25. It is also added as
 sendmail binary to your php setup.
 
 To check the mails just browse to your defined ip port 8025. For example
-http://192.168.254.253:1080, or if you have `192.168.254.253 magento2.dev` in
-your hosts file http://magento2.dev:1080.
+http://192.168.254.253:1080, or if you have `192.168.254.253 magento2.test` in
+your hosts file http://magento2.test:1080.
 
-For convenience there is a wildcard domain `mailcatcher.*.dev`. So we can also
+For convenience there is a wildcard domain `mailcatcher.*.test`. So we can also
 add thisone to our hosts file:
 
 ~~~
-192.168.254.253 mailcatcher.magento2.dev
+192.168.254.253 mailcatcher.magento2.test
 ~~~
 
 Varnish
@@ -186,7 +188,7 @@ Varnish
 
 Varnish is setup with the default vcl for magento2. If you want to test how
 your magento2 site behaves with varnish you can browse to
-http://magento2.dev:6081.
+http://magento2.test:6081.
 
 TODO: add an admin dashboard for varnish
 
@@ -198,12 +200,12 @@ rather for internal projects only since for Magento we probably will use
 rabbitmq by default.
 
 For convenience there is a beanstalk admin installed which is reacheable on
-http://phpbeanstalkadmin.magento2.dev
+http://phpbeanstalkadmin.magento2.test
 
 You could add an entry for that in your hosts file:
 
 ~~~
-192.168.254.253 phpbeanstalkadmin.magento2.dev
+192.168.254.253 phpbeanstalkadmin.magento2.test
 ~~~
 
 Rabbitmq
@@ -212,18 +214,22 @@ Rabbitmq
 Available for Enterprise Magento2 installations.
 
 The management interface of rabbitmq is installed and reachable on
-http://rabbitmq.magento2.dev
+http://rabbitmq.magento2.test
 
 ~~~
-192.168.254.253 rabbitmq.magento2.dev
+192.168.254.253 rabbitmq.magento2.test
 ~~~
 
 Elasticsearch
 -------------
 
-Available for Enterprise Magneto2 installations.
+ElasticHQ is installed as UI to get insight into your local elasticsearch
+cluster. If put in your hosts file you can reach it on
+http://elastichq.magento2.test
 
-Not yet available
+~~~
+192.168.254.253 elastichq.magento2.test
+~~~
 
 Defaults
 --------
@@ -237,12 +243,13 @@ Example Hosts File
 ------------------
 
 ~~~
-192.168.254.253 magento2.dev
-192.168.254.253 phpbeanstalkadmin.magento2.dev
-192.168.254.253 mailcatcher.magento2.dev
-192.168.254.253 phpmemcacheadmin.magento2.dev
-192.168.254.253 rabbitmq.magento2.dev
-192.168.254.253 phpredmin.magento2.dev
+192.168.254.253 magento2.test
+192.168.254.253 phpbeanstalkadmin.magento2.test
+192.168.254.253 mailcatcher.magento2.test
+192.168.254.253 phpmemcacheadmin.magento2.test
+192.168.254.253 rabbitmq.magento2.test
+192.168.254.253 phpredmin.magento2.test
+192.168.254.253 elastichq.magento2.test
 ~~~
 
 Flavours

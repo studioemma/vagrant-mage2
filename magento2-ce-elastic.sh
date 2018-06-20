@@ -26,7 +26,6 @@ grunt/install.sh
 mailcatcher/install.sh
 varnish/install.sh
 elasticsearch/install-5.sh # elasticsuite and magento commerce supported
-rabbitmq/install.sh
 magento/install.sh
 mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.0-fpm'
 
