@@ -1,3 +1,4 @@
+# vim: ft=yaml:
 project: 'magento2'
 type: 'magento2-ce'
 ip: '192.168.254.253'
