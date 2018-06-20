@@ -231,6 +231,10 @@ http://elastichq.magento2.test
 192.168.254.253 elastichq.magento2.test
 ~~~
 
+Because Magento Commerce supports Elasticsearch 2 and 5 and Elastic Suite for
+the community edition is now optimized for Elasticsearch 5.x the default choice
+is Elasticsearch 5.x .
+
 Defaults
 --------
 
@@ -252,15 +256,20 @@ Example Hosts File
 192.168.254.253 elastichq.magento2.test
 ~~~
 
-Flavours
---------
+Flavours (type)
+---------------
 
-Currently we have 2 available flavours:
+All boxes are currently based on Ubuntu Xenial (16.04)
 
-- xenial-7.0 : ubuntu 16.04 with the latest php 7.0 available
-- xenial-7.1 : ubuntu 16.04 with the latest php 7.1 available
+- magento2-ce-php7.0: configuration for Magento Community with php 7.0
+- magento2-ce-php7.1: configuration for Magento Community with php 7.1
+- magento2-ee-php7.0: configuration for Magento Commerce with php 7.0
+- magento2-ee-php7.1: configuration for Magento Commerce with php 7.1
 
-To get the flavour you want checkout the corresponding branch in this repo.
+Special flavors:
+
+- magento2-ce-php7.0-elastic: configuration for Magento Community with php 7.0 with elasticearch 5.x
+- magento2-ce-php7.1-elastic: configuration for Magento Community with php 7.1 with elasticearch 5.x
 
 WARNING
 -------
