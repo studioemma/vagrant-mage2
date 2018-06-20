@@ -1,6 +1,6 @@
 # vim: ft=yaml:
 project: 'magento2'
-type: 'magento2-ce'
+type: 'magento2-ce-php7.1'
 ip: '192.168.254.253'
 #pubip: '192.168.2.254'
 #mac: '08de08de08de'
