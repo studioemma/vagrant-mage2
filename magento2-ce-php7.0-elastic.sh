@@ -28,6 +28,7 @@ varnish/install.sh
 elasticsearch/install-5.sh # elasticsuite and magento commerce supported
 magento/install.sh
 mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.0-fpm'
+cleanup/install.sh
 
 if [ "/tmp" != "$basedir" ]; then
     cd "$calldir"

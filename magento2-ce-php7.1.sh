@@ -27,6 +27,7 @@ mailcatcher/install.sh
 varnish/install.sh
 magento/install.sh
 mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.1-fpm'
+cleanup/install.sh
 
 if [ "/tmp" != "$basedir" ]; then
     cd "$calldir"
