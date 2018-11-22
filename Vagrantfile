@@ -88,14 +88,8 @@ Vagrant.configure(2) do |config|
       config.vm.synced_folder boxconfig['path'], "/var/www/website",
         id: "website"
     else
-      if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
-        config.vm.synced_folder boxconfig['path'], "/var/www/website",
-          id: "website", type: "nfs",
-          mount_options: ["rw","vers=3","udp","actimeo=2"]
-      else
-        config.vm.synced_folder boxconfig['path'], "/var/www/website",
-          id: "website"
-      end
+      config.vm.synced_folder boxconfig['path'], "/var/www/website",
+        id: "website"
     end
   end
 
