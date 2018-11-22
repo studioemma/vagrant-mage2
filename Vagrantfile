@@ -99,6 +99,12 @@ Vagrant.configure(2) do |config|
     end
   end
 
+  ## sync composer
+  if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
+    config.vm.synced_folder "~/.composer", "/home/vagrant/.composer",
+      id: "composer"
+  end
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider "virtualbox" do |vb|
