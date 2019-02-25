@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
     elsif (boxconfig['sync'] && boxconfig['sync'] == 'nfs')
       config.vm.synced_folder boxconfig['path'], "/var/www/website",
         id: "website", type: "nfs",
-        mount_options: ["rw","vers=3","udp","actimeo=2"]
+        mount_options: ["rw","vers=3","tcp","actimeo=2"]
     elsif (boxconfig['sync'] && boxconfig['sync'] == 'vboxsf')
       config.vm.synced_folder boxconfig['path'], "/var/www/website",
         id: "website"
