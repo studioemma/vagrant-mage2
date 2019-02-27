@@ -259,28 +259,21 @@ Example Hosts File
 Flavours (type)
 ---------------
 
-All boxes are currently based on Ubuntu Xenial (16.04)
+All boxes are currently based on Ubuntu Bionic (18.04)
 
 - magento2-ce-php7.0: configuration for Magento Community with php 7.0
 - magento2-ce-php7.1: configuration for Magento Community with php 7.1
+- magento2-ce-php7.2: configuration for Magento Community with php 7.2
 - magento2-ee-php7.0: configuration for Magento Commerce with php 7.0
 - magento2-ee-php7.1: configuration for Magento Commerce with php 7.1
+- magento2-ee-php7.2: configuration for Magento Commerce with php 7.1
 
 Special flavors:
 
 - magento2-ce-php7.0-elastic: configuration for Magento Community with php 7.0 with elasticearch 5.x
 - magento2-ce-php7.1-elastic: configuration for Magento Community with php 7.1 with elasticearch 5.x
-
-WARNING
--------
-
-The 7.1 version works but since mcrypt is deprecated you might need to do some
-manual changes to get it all working fine.
-
-Deprecated
-----------
-
-- trusty-5.5 : ubuntu 14.04 with the latest php 5.5 available
-- trusty-5.6 : ubuntu 14.04 with the latest php 5.6 available
-- trusty-7.0 : ubuntu 14.04 with the latest php 7.0 available
+- magento1-ce-php5.6: should work configuration for magento1 with php 5.6
+- magento1-ce-php7.0: should work configuration for magento1 with php 7.0
+- magento1-ce-php7.1: should work configuration for magento1 with php 7.1
+- magento1-ce-php7.2: should work configuration for magento1 with php 7.2
 
