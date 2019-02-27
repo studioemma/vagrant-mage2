@@ -105,6 +105,9 @@ Vagrant.configure(2) do |config|
       id: "composer"
   end
 
+  ## default share?
+  config.vm.synced_folder ".", "/vagrant"
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider "virtualbox" do |vb|
@@ -114,7 +117,6 @@ Vagrant.configure(2) do |config|
     if RUBY_PLATFORM =~ /linux/
       vb.customize ["modifyvm", :id, "--paravirtprovider", "kvm"]
     end
-    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   # stdin: is not a tty
