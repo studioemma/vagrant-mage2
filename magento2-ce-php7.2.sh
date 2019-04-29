@@ -20,7 +20,6 @@ nginx/install.sh
 php/install-7.2.sh
 mysql/install.sh
 redis/install.sh
-memcached/install.sh
 nodejs/install-10.sh
 grunt/install.sh
 mailcatcher/install.sh
