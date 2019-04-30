@@ -87,6 +87,14 @@ Vagrant.configure(2) do |config|
     elsif (boxconfig['sync'] && boxconfig['sync'] == 'vboxsf')
       config.vm.synced_folder boxconfig['path'], "/var/www/website",
         id: "website"
+    elsif (boxconfig['sync'] && boxconfig['sync'] == 'nfs_guest')
+      unless Vagrant.has_plugin?("vagrant-nfs_guest")
+        puts 'for nfs_guest install vagrant-nfs_guest plugin'
+        puts ' `vagrant plugin install vagrant-nfs_guest`'
+        abort
+      end
+      config.vm.synced_folder boxconfig['path'], "/var/www/website",
+        id: "website", type: "nfs_guest"
     else
       if (RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/)
         config.vm.synced_folder boxconfig['path'], "/var/www/website",
