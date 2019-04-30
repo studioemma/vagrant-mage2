@@ -111,6 +111,7 @@ Vagrant.configure(2) do |config|
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider "virtualbox" do |vb|
+    vb.linked_clone = true
     vb.name = "mage2-" + boxconfig['project']
     vb.memory = boxconfig['memory']
     vb.cpus = boxconfig['cpus']
