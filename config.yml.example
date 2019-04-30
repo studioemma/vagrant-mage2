@@ -4,7 +4,7 @@ type: 'magento2-ce-php7.1'
 ip: '192.168.254.253'
 #pubip: '192.168.2.254'
 #mac: '08de08de08de'
-#sync: 'auto' # vboxsf, nfs, rsync, auto (nfs or vboxsf)
+#sync: 'auto' # vboxsf, nfs, nfs_guest, rsync, auto (nfs or vboxsf)
 path: '../magento2'
 memory: 2048
 cpus: 2
