@@ -20,7 +20,7 @@ nginx/install.sh
 php/install-7.0.sh
 mysql/install.sh
 redis/install.sh
-mailcatcher/install.sh
+mailhog/install.sh
 # changes for magento1
 sed \
     -e 's/magento2/magento1/g' \

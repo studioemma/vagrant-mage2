@@ -22,7 +22,7 @@ mysql/install.sh
 redis/install.sh
 nodejs/install-10.sh
 grunt/install.sh
-mailcatcher/install.sh
+mailhog/install.sh
 varnish/install.sh
 elasticsearch/install-5.sh # elasticsuite and magento commerce supported
 magento/install.sh

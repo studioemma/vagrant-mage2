@@ -22,7 +22,7 @@ mysql/install.sh
 redis/install.sh
 nodejs/install.sh
 grunt/install.sh
-mailcatcher/install.sh
+mailhog/install.sh
 varnish/install.sh
 magento/install.sh
 mountdependency/install.sh -m '/var/www/website' -s 'nginx' -s 'php7.1-fpm'
